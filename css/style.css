@@ -1,0 +1,18 @@
+.mulish-bold {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+.mulish-medium {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container {
+    width: 85%;
+    max-width: 1170px;
+    margin: auto;
+}
