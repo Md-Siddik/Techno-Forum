@@ -17,3 +17,9 @@
     margin: auto;
 }
 
+.banner-bg {
+    background-image: url('../images/bgbanner.png');
+    background-repeat: no-repeat;
+    background-size: 100% 75%;
+    background-position: bottom;
+}
