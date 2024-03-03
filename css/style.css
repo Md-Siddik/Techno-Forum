@@ -12,9 +12,9 @@
 }
 
 .container {
-    width: 85%;
-    max-width: 1170px;
-    margin: auto;
+    width: 85% !important;
+    max-width: 1170px !important;
+    margin: auto !important;
 }
 
 .banner-bg {
