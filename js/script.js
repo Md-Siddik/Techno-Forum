@@ -29,6 +29,26 @@ function checkActive(post) {
     }
 }
 
+function loading(isLoading){
+    const loading = document.getElementById('loading');
+    if(isLoading){
+        loading.classList.remove('hidden');
+    }
+    else {
+        loading.classList.add('hidden');
+    }
+}
+
+function loading2(isLoading){
+    const loading2 = document.getElementById('loading2');
+    if(isLoading){
+        loading2.classList.remove('hidden');
+    }
+    else {
+        loading2.classList.add('hidden');
+    }
+}
+
 function postItems(item){
     const title = item.title;
         const view = item.view_count;
@@ -80,44 +100,55 @@ function postItems(item){
                         </div>
                     </div>
                     <div>
-                        <img src="images/mail.png" alt="">
+                        <img id='markCurrentRead' src="images/mail.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
         `;
+        setTimeout(loading,2000,false);
         cards.appendChild(posts);
-        const clickedCard = document.getElementById(item.id);
 
-        clickedCard.addEventListener('click', function () {
-            markAsRead = markAsRead + 1;
-            clickedCard.classList.add('border-gray-400');
-            readCount.innerText = markAsRead;
-            const readRecord = document.createElement('div');
-            readRecord.innerHTML = `
-                <div class="flex bg-white p-4 rounded-2xl mb-4">
-                    <div>
-                        <p class="font-bold">${title}</p>
+        const markCurrentRead = document.getElementById('markCurrentRead');
+
+
+        markCurrentRead.addEventListener('click', function(){
+            
+            const clickedCard = document.getElementById(item.id);
+
+            clickedCard.addEventListener('click', function () {
+                markAsRead = markAsRead + 1;
+                clickedCard.classList.add('border-gray-400');
+                readCount.innerText = markAsRead;
+                const readRecord = document.createElement('div');
+                readRecord.innerHTML = `
+                    <div class="flex bg-white p-4 rounded-2xl mb-4">
+                        <div>
+                            <p class="font-bold">${title}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                            <span>${view}</span>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                        <span>${view}</span>
-                    </div>
-                </div>
-            `
-            markRead.appendChild(readRecord);
-    })
+                `
+                // loading.classList.remove('hidden')
+                markRead.appendChild(readRecord);
+            });
+        });
 }
 
 function seePost(post){
+    loading(true);
     for (item of post) {
-        postItems(item);
+        setTimeout(loading,2000,false);
+        setTimeout(postItems,2000,item);
     }
 }
 
@@ -139,9 +170,8 @@ function checkDesignation(latestPost){
     }
 }
 
-function allLatestPost(latestPost){
-    for(latest of latestPost){
-        const date = latest.author.posted_date;
+function loadLatest(latest){
+    const date = latest.author.posted_date;
         const designation = latest.author.designation;
         const latestCard = document.createElement('div');
         latestCard.classList.add('w-full');
@@ -171,18 +201,31 @@ function allLatestPost(latestPost){
             </div>
         `
         latestPosts.appendChild(latestCard);
+        checkDate(latestPost);
+}
+
+function allLatestPost(latestPost){
+    loading2(true);
+    
+    for(latest of latestPost){
+        setTimeout(loading2,2000,false);
+        setTimeout(loadLatest,2000,latest)
     }
-    checkDate(latestPost);
+
 }
 
 function searchByCategory(searchCategory){
+    loading(true);
     cards.textContent = '';
     const keyword = searchValue.value;
-
+    const lowerKey = keyword.toLowerCase();
+    setTimeout(loading,2000,false);
     for(searchData of searchCategory){
         const category = searchData.category;
-        if(toLowerCase(keyword) === toLowerCase(category)){
-            postItems(searchData);
+        const lowerCategory = category.toLowerCase();
+        if(lowerKey === lowerCategory){
+            setTimeout(postItems,2000,searchData);
+            // postItems(searchData);
         }
     }
 }
