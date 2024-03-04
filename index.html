@@ -99,14 +99,14 @@
                     class="banner-bg w-full bg-navyBlue flex justify-between max-sm:flex-col lg:p-28 max-sm:p-14 max-sm:gap-16 rounded-3xl mb-28">
                     <div class="w-[500px] max-sm:w-full">
                         <h1 class="text-white text-6xl max-sm:text-4xl font-bold">Welcome to the <span
-                                class="panton">ReTro</span> Forum
+                                class="text-panton">ReTro</span> Forum
                         </h1>
                         <div class="w-[400px] max-sm:w-full">
                             <p class="text-gray-100 mulish-medium my-10 text-lg">Share your favorite opinion and win and
                                 wp forum coffee mug!</p>
                             <div class="join bg-white rounded-full w-full p-1">
-                                <input class="input rounded-full w-full" placeholder="Search here anything" />
-                                <a class="btn rounded-full px-8 bg-panton text-white text-xl">Search</a>
+                                <input id="searchKey" class="input rounded-full w-full" placeholder="Search here anything" />
+                                <a id="searchPost" class="btn rounded-full px-8 bg-panton text-white text-xl">Search</a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                         within the app. The integrated testing features allow for a streamlined .</p>
                 </div>
                 <div class="flex gap-8 max-sm:flex-col mb-24">
-                    <div id="discuss-cards" class="flex flex-col gap-6">
+                    <div id="discuss-cards" class="w-full flex flex-col gap-6">
                     </div>
 
                     <div>
@@ -186,79 +186,7 @@
                     <p class="text-lg py-8">Yes, you can run unit tests and view the results directly within the app.
                         The integrated testing features allow for a streamlined .</p>
                 </div>
-                <div class="flex max-sm:flex-col max-sm:gap-8 mb-24">
-                    <div class="w-[370px] m-auto max-sm:w-full border-2 border-solid border-gray-400 bg-white rounded-3xl p-6">
-                        <div class="w-full h-[200px] rounded-3xl bg-gray-100">
-                            <img src="" alt="">
-                        </div>
-                        <div class="flex gap-2 py-6">
-                            <img src="images/calendar.png" alt="">
-                            <p>29 January 2024</p>
-                        </div>
-                        <div class="pr-2">
-                            <h1 class="text-lg font-bold">What will a mars habitat force that impact in our daily
-                                life!!!</h1>
-                            <p class="py-4">Yes, you can run unit tests and view the results directly within the app.
-                            </p>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-[52px] h-[52px] rounded-full bg-gray-400">
-                                <img src="" alt="">
-                            </div>
-                            <div>
-                                <h1 class="text-lg font-bold">Cameron Williamson</h1>
-                                <p>Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[370px] m-auto max-sm:w-full border-2 border-solid border-gray-400 bg-white rounded-3xl p-6">
-                        <div class="w-full h-[200px] rounded-3xl bg-gray-100">
-                            <img src="" alt="">
-                        </div>
-                        <div class="flex gap-2 py-6">
-                            <img src="images/calendar.png" alt="">
-                            <p>29 January 2024</p>
-                        </div>
-                        <div class="pr-2">
-                            <h1 class="text-lg font-bold">What will a mars habitat force that impact in our daily
-                                life!!!</h1>
-                            <p class="py-4">Yes, you can run unit tests and view the results directly within the app.
-                            </p>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-[52px] h-[52px] rounded-full bg-gray-400">
-                                <img src="" alt="">
-                            </div>
-                            <div>
-                                <h1 class="text-lg font-bold">Cameron Williamson</h1>
-                                <p>Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[370px] m-auto max-sm:w-full border-2 border-solid border-gray-400 bg-white rounded-3xl p-6">
-                        <div class="w-full h-[200px] rounded-3xl bg-gray-100">
-                            <img src="" alt="">
-                        </div>
-                        <div class="flex gap-2 py-6">
-                            <img src="images/calendar.png" alt="">
-                            <p>29 January 2024</p>
-                        </div>
-                        <div class="pr-2">
-                            <h1 class="text-lg font-bold">What will a mars habitat force that impact in our daily
-                                life!!!</h1>
-                            <p class="py-4">Yes, you can run unit tests and view the results directly within the app.
-                            </p>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-[52px] h-[52px] rounded-full bg-gray-400">
-                                <img src="" alt="">
-                            </div>
-                            <div>
-                                <h1 class="text-lg font-bold">Cameron Williamson</h1>
-                                <p>Unknown</p>
-                            </div>
-                        </div>
-                    </div>
+                <div id="latestPosts" class="flex max-sm:flex-col max-sm:gap-8 mb-24">
                 </div>
             </div>
         </section>
